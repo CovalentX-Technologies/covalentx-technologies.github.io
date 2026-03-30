@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CovalentX Technologies | Official Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --cobalt: #0b3d91;
+            --electric: #1e90ff;
+            --slate: #4a5568;
+            --light-bg: #ffffff;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--light-bg);
+            color: #1a202c;
+            line-height: 1.7;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .main-logo {
+            height: 110px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: var(--cobalt);
+        }
+
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--electric); }
+
+        /* Hero */
+        .hero {
+            padding: 160px 8% 100px;
+            text-align: center;
+            background: radial-gradient(circle at top right, #f0f7ff 0%, #ffffff 50%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #7B3FE4;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--slate);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            padding: 16px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.4s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-main {
+            background: var(--cobalt);
+            color: white;
+            box-shadow: 0 10px 20px rgba(11, 61, 145, 0.2);
+        }
+
+        .btn-main:hover { transform: translateY(-3px); background: var(--electric); }
+
+        .btn-apply-small {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 0.9rem;
+            background: var(--cobalt);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-apply-small:hover { background: var(--electric); }
+
+        /* Sections */
+        .section { padding: 80px 8%; }
+        .tagline { 
+            color: var(--electric); 
+            text-transform: uppercase; 
+            font-weight: 800; 
+            letter-spacing: 2px; 
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--cobalt); margin-bottom: 50px; }
+
+        /* Generic Grid Layout */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 24px;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            box-shadow: var(--card-shadow);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover { border-color: var(--electric); transform: translateY(-5px); }
+        .card h3 { color: var(--cobalt); margin: 15px 0; font-size: 1.4rem; }
+        .card p { color: var(--slate); font-size: 0.95rem; }
+
+        .check-list { list-style: none; margin-top: 20px; }
+        .check-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: var(--slate); }
+        .check-list i { color: #00c853; }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project-item {
+            height: 250px;
+            background: #e2e8f0;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .project-item:hover img { transform: scale(1.1); }
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        /* Testimonials */
+        .testimonial-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+
+        .t-card {
+            min-width: 320px;
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 5px solid var(--electric);
+        }
+
+        /* Footer & Contact */
+        footer {
+            background: #f8fafc;
+            padding: 80px 8% 40px;
+            border-top: 1px solid #edf2f7;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .contact-info p { margin-bottom: 10px; color: var(--slate); }
+        .contact-info i { color: var(--cobalt); width: 25px; }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 20px;
+            color: var(--cobalt);
+            transition: 0.3s;
+        }
+        .social-icons a:hover { color: var(--electric); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+
+        .f-brand-name {
+            font-size: 1.5rem; /* reduce this value as needed */
+            font-weight: 800;
+            color: var(--cobalt);
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="brand-area">
+        <img src="logo2.jpeg" width="100" alt="CovalentX Logo" class="main-logo">
+        <span class="brand-name">CovalentX Technologies</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#pathways">Pathways</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Projects</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1>Innovating the Future</h1>
+    <p>Empowering students with real-world technical expertise. Transition from an intern to a certified innovator today.</p>
+    <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" class="btn btn-main">Get Started Now</a>
+</section>
+
+<section class="section" id="pathways" style="background-color: #fcfdfe;">
+    <span class="tagline">Your Career Starts Here</span>
+    <h2 class="section-title">Internship Pathways</h2>
+    <div class="grid-3">
+        <div class="card">
+            <div>
+                <i class="fas fa-laptop-code fa-3x" style="color: var(--electric);"></i>
+                <h3>Virtual Internship</h3>
+                <p>Flexible, project-based remote learning designed for modern developers worldwide.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check-circle"></i> Offer Letter</li>
+                    <li><i class="fas fa-check-circle"></i> Completion Certificate</li>
+                    <li><i class="fas fa-check-circle"></i> Real-time Support</li>
+                </ul>
+            </div>
+            <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" class="btn-apply-small">Apply Now</a>
+        </div>
+        <div class="card" style="border-color: var(--cobalt);">
+            <div>
+                <i class="fas fa-building fa-3x" style="color: var(--cobalt);"></i>
+                <h3>Physical Internship</h3>
+                <p>Hands-on experience at our Mumbai innovation hub with senior industry mentors.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check-circle"></i> Offer Letter</li>
+                    <li><i class="fas fa-check-circle"></i> Certificate + Letter of Recommendation (LOR)</li>
+                    <li><i class="fas fa-check-circle"></i> Corporate Environment</li>
+                </ul>
+            </div>
+            <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" class="btn-apply-small">Apply Now</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="services">
+    <span class="tagline">What We Do</span>
+    <h2 class="section-title">Our Expert Services</h2>
+    <div class="grid-3">
+        <div class="card">
+            <i class="fas fa-globe fa-2x" style="color: var(--electric);"></i>
+            <h3>Web Development</h3>
+            <p>We build high-performance, responsive websites and progressive web apps using modern stacks like React, Node, and Python.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-mobile-alt fa-2x" style="color: var(--electric);"></i>
+            <h3>App Development</h3>
+            <p>Creating seamless iOS and Android experiences with a focus on user-centric design and scalable architecture.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-microchip fa-2x" style="color: var(--electric);"></i>
+            <h3>Software Solutions</h3>
+            <p>Custom enterprise software, AI integration, and cloud-based systems tailored to streamline business operations.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="gallery" style="background-color: #fcfdfe;">
+    <h2 class="section-title">Our Workspaces</h2>
+    <div class="gallery">
+        <div class="project-item">
+            <img src="project1.jpeg" alt="Web Dev">
+            <div class="project-overlay"><h4>Core Team</h4></div>
+        </div>
+        <div class="project-item">
+            <img src="office.jpeg" alt="App Dev">
+            <div class="project-overlay"><h4>Modern Conference Rooms</h4></div>
+        </div>
+        <div class="project-item">
+            <img src="project2.jpeg" alt="SaaS">
+            <div class="project-overlay"><h4>Development in Action</h4></div>
+        </div>
+        <div class="project-item">
+            <img src="b.jpeg" alt="Systems">
+            <div class="project-overlay"><h4>Backend Architecture</h4></div>
+        </div>
+        <div class="project-item">
+            <img src="banner.jpeg" alt="Web Dev">
+            <div class="project-overlay"><h4>CovalentX Work Culture</h4></div>
+        </div>
+        <div class="project-item">
+            <img src="of.jpeg" alt="App Dev">
+            <div class="project-overlay"><h4>Offer Letter</h4></div>
+        </div>
+        <div class="project-item">
+            <img src="internship.jpeg" alt="SaaS">
+            <div class="project-overlay"><h4>Certificate</h4></div>
+        </div>
+        <div class="project-item">
+            <img src="proj3.jpeg" alt="Systems">
+            <div class="project-overlay"><h4>Machine Learning Interns</h4></div>
+        </div>
+
+
+
+
+    </div>
+</section>
+
+<section class="section" id="testimonials">
+    <h2 class="section-title">Success Stories</h2>
+    <div class="testimonial-slider">
+        <div class="t-card">
+            <p>"The Web Development internship at CovalentX gave me the confidence to build full-stack apps from scratch."</p>
+            <h4 style="margin-top:15px; color: var(--cobalt);">— Priya Sharma</h4>
+        </div>
+        <div class="t-card">
+            <p>"Great environment and professional mentors. The LOR helped me land my first job in tech!"</p>
+            <h4 style="margin-top:15px; color: var(--cobalt);">— Rahul Varma</h4>
+        </div>
+        <div class="t-card">
+            <p>"Industry-standard projects. Highly recommended for any engineering student."</p>
+            <h4 style="margin-top:15px; color: var(--cobalt);">— Ananya Iyer</h4>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer id="contact">
+    <div class="footer-content">
+        <div class="contact-us">
+            <div class="brand-area" style="margin-bottom: 20px;">
+                <img src="logo2.jpeg" alt="CovalentX Logo" class="main-logo">
+                <span class="f-brand-name">CovalentX Technologies</span>
+            </div>
+            <p style="color: var(--slate); font-size: 0.9rem;">From Intern to Innovator. We are dedicated to building the tech leaders of tomorrow.</p>
+        </div>
+        
+        <div class="contact-info">
+            <h3 style="color: var(--cobalt); margin-bottom: 20px;">Contact Us</h3>
+            <p><i class="fas fa-envelope"></i> covalentx.tech@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Sakinaka, Mumbai, India</p>
+        </div>
+
+        <div class="socials">
+            <h3 style="color: var(--cobalt); margin-bottom: 20px;">Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/covalentx.technologies?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com/company/covalentx" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; border-top: 1px solid #edf2f7; padding-top: 30px;">
+        <p style="color: var(--slate); font-size: 0.85rem;">&copy; <b>2026 CovalentX Technologies. All rights reserved.</b></p>
+    </div>
+</footer>
+
+</body>
+</html>
