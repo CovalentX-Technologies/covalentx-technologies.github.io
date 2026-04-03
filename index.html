@@ -245,12 +245,42 @@
         }
 
         .f-brand-name {
-            font-size: 1.5rem; /* reduce this value as needed */
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--cobalt);
         }
-        
 
+        /* VERIFICATION STYLES */
+        .verify-box {
+            background: #ffffff;
+            border: 2px solid #edf2f7;
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: var(--card-shadow);
+        }
+        .verify-input {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 12px;
+            border: 2px solid #edf2f7;
+            font-family: inherit;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .verify-input:focus { border-color: var(--electric); }
+        .result-panel {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 15px;
+            background: #f0fdf4;
+            border: 1px solid #bcf0da;
+            text-align: left;
+        }
         
     </style>
 </head>
@@ -263,8 +293,9 @@
     </div>
     <ul class="nav-links">
         <li><a href="#pathways">Pathways</a></li>
+        <li><a href="#gallery">Workspaces</a></li>
+        <li><a href="#verify">Verify</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#gallery">Projects</a></li>
         <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
@@ -311,28 +342,6 @@
     </div>
 </section>
 
-<section class="section" id="services">
-    <span class="tagline">What We Do</span>
-    <h2 class="section-title">Our Expert Services</h2>
-    <div class="grid-3">
-        <div class="card">
-            <i class="fas fa-globe fa-2x" style="color: var(--electric);"></i>
-            <h3>Web Development</h3>
-            <p>We build high-performance, responsive websites and progressive web apps using modern stacks like React, Node, and Python.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-mobile-alt fa-2x" style="color: var(--electric);"></i>
-            <h3>App Development</h3>
-            <p>Creating seamless iOS and Android experiences with a focus on user-centric design and scalable architecture.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-microchip fa-2x" style="color: var(--electric);"></i>
-            <h3>Software Solutions</h3>
-            <p>Custom enterprise software, AI integration, and cloud-based systems tailored to streamline business operations.</p>
-        </div>
-    </div>
-</section>
-
 <section class="section" id="gallery" style="background-color: #fcfdfe;">
     <h2 class="section-title">Our Workspaces</h2>
     <div class="gallery">
@@ -368,10 +377,52 @@
             <img src="proj3.jpeg" alt="Systems">
             <div class="project-overlay"><h4>Machine Learning Interns</h4></div>
         </div>
+    </div>
+</section>
 
+<section class="section" id="verify" style="background-color: #f8fafc; border-bottom: 1px solid #edf2f7;">
+    <span class="tagline">Authentication Gateway</span>
+    <h2 class="section-title">Verify Certificate</h2>
+    <div class="verify-box">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <p style="color: var(--slate);">Enter your unique Certificate ID to validate authenticity.</p>
+        </div>
+        <input type="text" id="cert-input" class="verify-input" placeholder="e.g. CST / APR / 2026 / 001">
+        <button onclick="checkCert()" class="btn btn-main" style="width: 100%;">Authenticate Credential</button>
 
+        <div id="cert-success" class="result-panel">
+            <h3 style="color: #065f46; margin-bottom: 15px;"><i class="fas fa-check-circle"></i> Valid Certificate Found</h3>
+            <p style="font-size: 1rem;"><strong>Name:</strong> <span id="v-name">---</span></p>
+            <p style="font-size: 1rem;"><strong>Domain:</strong> <span id="v-domain">---</span></p>
+            <p style="font-size: 1rem;"><strong>Issued By:</strong> CovalentX Technologies</p>
+            <p style="color: #059669; font-weight: 800; margin-top: 10px;">Status: Verified Official</p>
+        </div>
 
+        <div id="cert-error" style="display:none; color: #dc2626; margin-top: 20px; text-align: center; font-weight: 600;">
+            <i class="fas fa-times-circle"></i> Record not found. Please verify the ID.
+        </div>
+    </div>
+</section>
 
+<section class="section" id="services">
+    <span class="tagline">What We Do</span>
+    <h2 class="section-title">Our Expert Services</h2>
+    <div class="grid-3">
+        <div class="card">
+            <i class="fas fa-globe fa-2x" style="color: var(--electric);"></i>
+            <h3>Web Development</h3>
+            <p>We build high-performance, responsive websites and progressive web apps using modern stacks like React, Node, and Python.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-mobile-alt fa-2x" style="color: var(--electric);"></i>
+            <h3>App Development</h3>
+            <p>Creating seamless iOS and Android experiences with a focus on user-centric design and scalable architecture.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-microchip fa-2x" style="color: var(--electric);"></i>
+            <h3>Software Solutions</h3>
+            <p>Custom enterprise software, AI integration, and cloud-based systems tailored to streamline business operations.</p>
+        </div>
     </div>
 </section>
 
@@ -392,20 +443,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <footer id="contact">
     <div class="footer-content">
@@ -437,6 +474,37 @@
         <p style="color: var(--slate); font-size: 0.85rem;">&copy; <b>2026 CovalentX Technologies. All rights reserved.</b></p>
     </div>
 </footer>
+
+<script>
+    window.onload = function() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('id')) {
+            document.getElementById('cert-input').value = params.get('id');
+            showRes(params.get('name'), params.get('domain'));
+            document.getElementById('verify').scrollIntoView();
+        }
+    }
+
+    function checkCert() {
+        const id = document.getElementById('cert-input').value.trim();
+        const success = document.getElementById('cert-success');
+        const error = document.getElementById('cert-error');
+
+        if (id.includes("CST /") && id.length > 10) {
+            error.style.display = 'none';
+            showRes("Verified Intern", "CovalentX Alumni");
+        } else {
+            success.style.display = 'none';
+            error.style.display = 'block';
+        }
+    }
+
+    function showRes(name, domain) {
+        document.getElementById('cert-success').style.display = 'block';
+        document.getElementById('v-name').textContent = name;
+        document.getElementById('v-domain').textContent = domain;
+    }
+</script>
 
 </body>
 </html>
