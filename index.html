@@ -387,7 +387,7 @@
         <div style="text-align: center; margin-bottom: 30px;">
             <p style="color: var(--slate);">Enter your unique Certificate ID to validate authenticity.</p>
         </div>
-        <input type="text" id="cert-input" class="verify-input" placeholder="e.g. CST / APR / 2026 / 001">
+        <input type="text" id="cert-input" class="verify-input" placeholder="e.g. CXT / APR / 2026 / 001">
         <button onclick="checkCert()" class="btn btn-main" style="width: 100%;">Authenticate Credential</button>
 
         <div id="cert-success" class="result-panel">
@@ -463,7 +463,7 @@
         <div class="socials">
             <h3 style="color: var(--cobalt); margin-bottom: 20px;">Follow Us</h3>
             <div class="social-icons">
-                <a href="https://www.instagram.com/covalentx.technologies?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/covalentx.tech?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/covalentx-technologies/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-facebook"></i></a>
             </div>
@@ -477,27 +477,65 @@
 
 <script>
     window.onload = function() {
-        const params = new URLSearchParams(window.location.search);
-        if (params.has('id')) {
-            document.getElementById('cert-input').value = params.get('id');
-            showRes(params.get('name'), params.get('domain'));
-            document.getElementById('verify').scrollIntoView();
+    const params = new URLSearchParams(window.location.search);
+    
+    if (params.has('id')) {
+        const scannedID = params.get('id');
+        
+        // 1. Fill the input box automatically
+        const inputField = document.getElementById('cert-input');
+        if (inputField) {
+            inputField.value = scannedID;
         }
-    }
 
-    function checkCert() {
-        const id = document.getElementById('cert-input').value.trim();
-        const success = document.getElementById('cert-success');
-        const error = document.getElementById('cert-error');
-
-        if (id.includes("CST /") && id.length > 10) {
-            error.style.display = 'none';
-            showRes("Verified Intern", "CovalentX Alumni");
+        // 2. If the URL has the name and domain, show them INSTANTLY
+        if (params.has('name') && params.has('domain')) {
+            const name = params.get('name').replace(/_/g, ' ');
+            const domain = params.get('domain').replace(/_/g, ' ');
+            
+            // This uses your existing function to show the green box
+            showRes(name, domain);
+            
+            // 3. Scroll down so the user sees the "Valid Certificate Found" box
+            const verifySection = document.getElementById('verify');
+            if (verifySection) {
+                verifySection.scrollIntoView({ behavior: 'smooth' });
+            }
         } else {
-            success.style.display = 'none';
-            error.style.display = 'block';
+            // If only the ID is present, run your normal database check
+            if (typeof checkCert === "function") {
+                checkCert();
+            }
         }
     }
+}
+    async function checkCert() {
+    const id = document.getElementById('cert-input').value.trim();
+    const successPanel = document.getElementById('cert-success');
+    const errorPanel = document.getElementById('cert-error');
+    
+    if (!id) return;
+
+    try {
+        // Replace with your actual Deployed Web App URL from Apps Script
+        const API_URL = "YOUR_APPS_SCRIPT_WEB_APP_URL"; 
+        
+        const response = await fetch(`${API_URL}?id=${encodeURIComponent(id)}`);
+        const data = await response.json();
+
+        if (data.status === "success") {
+            document.getElementById('v-name').innerText = data.name;
+            document.getElementById('v-domain').innerText = data.domain;
+            successPanel.style.display = 'block';
+            errorPanel.style.display = 'none';
+        } else {
+            successPanel.style.display = 'none';
+            errorPanel.style.display = 'block';
+        }
+    } catch (err) {
+        console.error("Connection failed", err);
+    }
+}
 
     function showRes(name, domain) {
         document.getElementById('cert-success').style.display = 'block';
