@@ -519,7 +519,7 @@
 
     try {
         // Replace with your actual Deployed Web App URL from Apps Script
-        const API_URL = "YOUR_APPS_SCRIPT_WEB_APP_URL"; 
+        const API_URL = "https://script.google.com/macros/s/AKfycbwhdUnDA7WxEP9O455Ds_LJz0bleKoZEzcGWSSSTkukG1fVLDD3MqOCZ-UMptBSsE_Y/exec"; 
         
         const response = await fetch(`${API_URL}?id=${encodeURIComponent(id)}`);
         const data = await response.json();
