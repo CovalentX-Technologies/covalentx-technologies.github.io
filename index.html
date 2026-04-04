@@ -510,39 +510,53 @@
     }
 }
     async function checkCert() {
-    const id = document.getElementById('cert-input').value.trim();
+    // 1. Get input and clean it (Trim spaces and force Uppercase)
+    const rawId = document.getElementById('cert-input').value.trim();
+    const id = rawId.toUpperCase(); 
+    
     const successPanel = document.getElementById('cert-success');
     const errorPanel = document.getElementById('cert-error');
-    const SCRIPT_URL ="https://script.google.com/macros/s/AKfycbwhdUnDA7WxEP9O455Ds_LJz0bleKoZEzcGWSSSTkukG1fVLDD3MqOCZ-UMptBSsE_Y/exec"
+    
+    // Your verified Apps Script URL
+    const API_URL = "https://script.google.com/macros/s/AKfycbwhdUnDA7WxEP9O455Ds_LJz0bleKoZEzcGWSSSTkukG1fVLDD3MqOCZ-UMptBSsE_Y/exec";
     
     if (!id) return;
 
+    // Optional: Change button text to show it's working
+    const btn = document.querySelector('.btn-main');
+    const originalText = btn.innerText;
+    btn.innerText = "Authenticating...";
+
     try {
-        // Replace with your actual Deployed Web App URL from Apps Script
-        const API_URL = "https://script.google.com/macros/s/AKfycbwhdUnDA7WxEP9O455Ds_LJz0bleKoZEzcGWSSSTkukG1fVLDD3MqOCZ-UMptBSsE_Y/exec"; 
-        
+        // 2. Fetch data from your Google Sheet via Apps Script
         const response = await fetch(`${API_URL}?id=${encodeURIComponent(id)}`);
         const data = await response.json();
 
         if (data.status === "success") {
-            document.getElementById('v-name').innerText = data.name;
-            document.getElementById('v-domain').innerText = data.domain;
-            successPanel.style.display = 'block';
+            // 3. Use your existing showRes function to display the green box
+            showRes(data.name, data.domain);
             errorPanel.style.display = 'none';
         } else {
+            // 4. Show "Record not found"
             successPanel.style.display = 'none';
             errorPanel.style.display = 'block';
         }
     } catch (err) {
         console.error("Connection failed", err);
+        errorPanel.innerText = "Network error. Please check your connection.";
+        errorPanel.style.display = 'block';
+    } finally {
+        // Reset button text
+        btn.innerText = originalText;
     }
 }
 
-    function showRes(name, domain) {
-        document.getElementById('cert-success').style.display = 'block';
-        document.getElementById('v-name').textContent = name;
-        document.getElementById('v-domain').textContent = domain;
-    }
+function showRes(name, domain) {
+    // This ensures the green panel is visible and filled with data
+    document.getElementById('cert-success').style.display = 'block';
+    document.getElementById('v-name').textContent = name;
+    document.getElementById('v-domain').textContent = domain;
+}
 </script>
 
 </body>
