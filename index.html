@@ -170,6 +170,75 @@
         .check-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: var(--slate); }
         .check-list i { color: #00c853; }
 
+        /* FAQ ACCORDION STYLES */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .faq-card {
+            background: #ffffff;
+            padding: 20px 25px;
+            border-radius: 12px;
+            border: 1px solid #edf2f7;
+            cursor: pointer;
+            transition: 0.3s ease;
+            display: block; /* Stack vertical */
+            height: fit-content;
+        }
+        .faq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        .faq-header h3 {
+            font-size: 1rem;
+            color: var(--cobalt);
+            font-weight: 700;
+            margin: 0;
+        }
+        .faq-icon {
+            background: #f0f7ff;
+            color: var(--electric);
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.7rem;
+            transition: transform 0.4s ease;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, margin-top 0.4s ease;
+            margin-top: 0;
+        }
+        .faq-answer p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.6;
+            padding-top: 15px;
+        }
+        /* Active State */
+        .faq-card.active {
+            border-color: var(--electric);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .faq-card.active .faq-icon {
+            transform: rotate(180deg);
+            background: var(--electric);
+            color: white;
+        }
+        .faq-card.active .faq-answer {
+            max-height: 500px; /* Large enough for content */
+            margin-top: 10px;
+        }
+
         /* Gallery */
         .gallery {
             display: grid;
@@ -242,6 +311,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
+            .faq-grid { grid-template-columns: 1fr; }
         }
 
         .f-brand-name {
@@ -296,6 +366,7 @@
         <li><a href="#gallery">Workspaces</a></li>
         <li><a href="#verify">Verify</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
@@ -366,11 +437,11 @@
             <div class="project-overlay"><h4>CovalentX Work Culture</h4></div>
         </div>
         <div class="project-item">
-            <img src="of.jpeg" alt="App Dev">
+            <img src="NIDHI.jpg" alt="App Dev">
             <div class="project-overlay"><h4>Offer Letter</h4></div>
         </div>
         <div class="project-item">
-            <img src="internship.jpeg" alt="SaaS">
+            <img src="VANDANA.jpg" alt="SaaS">
             <div class="project-overlay"><h4>Certificate</h4></div>
         </div>
         <div class="project-item">
@@ -385,7 +456,7 @@
     <h2 class="section-title">Verify Certificate</h2>
     <div class="verify-box">
         <div style="text-align: center; margin-bottom: 30px;">
-            <p style="color: var(--slate);"> Scan your unique Certificate QR Code to validate authenticity.</p>
+            <p style="color: var(--slate);"> Enter your unique Certificate QR Code to validate authenticity.</p>
         </div>
         <input type="text" id="cert-input" class="verify-input" placeholder="e.g. CXT / APR / 2026 / 001"> 
         <button onclick="checkCert()" class="btn btn-main" style="width: 100%;">Authenticate Credential</button> 
@@ -427,6 +498,114 @@
     </div>
 </section>
 
+<!-- DROPDOWN FAQ SECTION -->
+<section class="section" id="faq" style="background-color: #fcfdfe;">
+    <span class="tagline">FAQ</span>
+    <h2 class="section-title">Any Questions? Answered</h2>
+    <div class="faq-grid">
+        <!-- Q1 -->
+        <div class="faq-card">
+            <div class="faq-header">
+                <h3>What is the duration of Internship?</h3>
+                <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-answer">
+                <p>All our internships are for a period of 1 month only.</p>
+            </div>
+        </div>
+        <!-- Q2 -->
+        <div class="faq-card">
+            <div class="faq-header">
+                <h3>What is the criteria for selection?</h3>
+                <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-answer">
+                <p>Selection is based on LinkedIn/profile shortlisting, basic skills, and a strong determination to learn and grow.</p>
+            </div>
+        </div>
+        <!-- Q3 -->
+        <div class="faq-card">
+            <div class="faq-header">
+                <h3>Can I complete multiple tracks together?</h3>
+                <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-answer">
+                <p>We believe to provide an actual learning environment, we have limited our internship offerings to 1 track per month for each student. This allows students to explore the chosen track in-depth and get quality results.</p>
+            </div>
+        </div>
+        <!-- Q4 -->
+        <div class="faq-card">
+            <div class="faq-header">
+                <h3>When does the internships starts?</h3>
+                <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-answer">
+                <p>Each batch starts at the start or mid of the month and ends on start or mid of next month respectively.</p>
+            </div>
+        </div>
+        <!-- Q5 -->
+        <div class="faq-card">
+            <div class="faq-header">
+                <h3>Is there any fees for the internship?</h3>
+                <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-answer">
+                <p>The internship is completely free. However, a documentation fee of ₹92 must be paid to cover the processing charges.</p>
+            </div>
+        </div>
+        <!-- Q6 -->
+        <div class="faq-card">
+            <div class="faq-header">
+                <h3>Is the internship Offline or Online?</h3>
+                <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-answer">
+                <p>All our internships are conducted in Virtual mode (Online).</p>
+            </div>
+        </div>
+        <!-- Q7 -->
+        <div class="faq-card">
+            <div class="faq-header">
+                <h3>When will I receive the Offer Letter?</h3>
+                <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-answer">
+                <p>We process the Offer Letters at the mid & end of month in batches. We request you to please wait in the mean time. If you have received the Task Submission Email, we request you to review your spam folder for the Offer Letter.</p>
+            </div>
+        </div>
+        <!-- Q8 -->
+        <div class="faq-card">
+            <div class="faq-header">
+                <h3>CIN is showing Invalid</h3>
+                <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-answer">
+                <p>The CIN will activate once you have been issued your Certificate of Completion.</p>
+            </div>
+        </div>
+        <!-- Q9 -->
+        <div class="faq-card">
+            <div class="faq-header">
+                <h3>How to submit Tasks?</h3>
+                <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-answer">
+                <p>A Submission Form will be mailed to you 10-15 days after you receive your Offer Letter.</p>
+            </div>
+        </div>
+        <!-- Q10 -->
+        <div class="faq-card">
+            <div class="faq-header">
+                <h3>When will I get the Certificate?</h3>
+                <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-answer">
+                <p>The Certificate of Completion is sent after the end date on the Offer Letter.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="section" id="testimonials">
     <h2 class="section-title">Success Stories</h2>
     <div class="testimonial-slider">
@@ -435,8 +614,8 @@
             <h4 style="margin-top:15px; color: var(--cobalt);">— Priya Sharma</h4>
         </div>
         <div class="t-card">
-            <p>"Great environment and professional mentors. The LOR helped me land my first job in tech!"</p>
-            <h4 style="margin-top:15px; color: var(--cobalt);">— Rahul Varma</h4>
+            <p>"Great environment and professional mentors. The LOR helped me land my first job in tech industry!"</p>
+            <h4 style="margin-top:15px; color: var(--cobalt);">— Rahul Verma</h4>
         </div>
         <div class="t-card">
             <p>"Industry-standard projects. Highly recommended for any engineering student."</p>
@@ -477,87 +656,84 @@
 </footer>
 
 <script>
+    // FAQ Toggle Script
+    document.querySelectorAll('.faq-card').forEach(card => {
+        card.addEventListener('click', () => {
+            // Check if this card is already open
+            const isOpen = card.classList.contains('active');
+            
+            // Close all other open FAQ cards (optional: remove this loop if you want multiple open at once)
+            document.querySelectorAll('.faq-card').forEach(c => c.classList.remove('active'));
+            
+            // Toggle the clicked card
+            if (!isOpen) {
+                card.classList.add('active');
+            }
+        });
+    });
+
     window.onload = function() {
-    const params = new URLSearchParams(window.location.search);
-    
-    if (params.has('id')) {
-        const scannedID = params.get('id');
+        const params = new URLSearchParams(window.location.search);
         
-        // 1. Fill the input box automatically
-        const inputField = document.getElementById('cert-input');
-        if (inputField) {
-            inputField.value = scannedID;
-        }
-
-        // 2. If the URL has the name and domain, show them INSTANTLY
-        if (params.has('name') && params.has('domain')) {
-            const name = params.get('name').replace(/_/g, ' ');
-            const domain = params.get('domain').replace(/_/g, ' ');
-            
-            // This uses your existing function to show the green box
-            showRes(name, domain);
-            
-            // 3. Scroll down so the user sees the "Valid Certificate Found" box
-            const verifySection = document.getElementById('verify');
-            if (verifySection) {
-                verifySection.scrollIntoView({ behavior: 'smooth' });
+        if (params.has('id')) {
+            const scannedID = params.get('id');
+            const inputField = document.getElementById('cert-input');
+            if (inputField) {
+                inputField.value = scannedID;
             }
-        } else {
-            // If only the ID is present, run your normal database check
-            if (typeof checkCert === "function") {
-                checkCert();
+
+            if (params.has('name') && params.has('domain')) {
+                const name = params.get('name').replace(/_/g, ' ');
+                const domain = params.get('domain').replace(/_/g, ' ');
+                showRes(name, domain);
+                const verifySection = document.getElementById('verify');
+                if (verifySection) {
+                    verifySection.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                if (typeof checkCert === "function") {
+                    checkCert();
+                }
             }
         }
     }
-}
+
     async function checkCert() {
-    // 1. Get input and clean it (Trim spaces and force Uppercase)
-    const rawId = document.getElementById('cert-input').value.trim();
-    const id = rawId.toUpperCase(); 
-    
-    const successPanel = document.getElementById('cert-success');
-    const errorPanel = document.getElementById('cert-error');
-    
-    // Your verified Apps Script URL
-    const API_URL = "https://script.google.com/macros/s/AKfycbwhdUnDA7WxEP9O455Ds_LJz0bleKoZEzcGWSSSTkukG1fVLDD3MqOCZ-UMptBSsE_Y/exec";
-    
-    if (!id) return;
+        const rawId = document.getElementById('cert-input').value.trim();
+        const id = rawId.toUpperCase(); 
+        const successPanel = document.getElementById('cert-success');
+        const errorPanel = document.getElementById('cert-error');
+        const API_URL = "https://script.google.com/macros/s/AKfycbwhdUnDA7WxEP9O455Ds_LJz0bleKoZEzcGWSSSTkukG1fVLDD3MqOCZ-UMptBSsE_Y/exec";
+        
+        if (!id) return;
+        const btn = document.querySelector('.btn-main');
+        const originalText = btn.innerText;
+        btn.innerText = "Authenticating...";
 
-    // Optional: Change button text to show it's working
-    const btn = document.querySelector('.btn-main');
-    const originalText = btn.innerText;
-    btn.innerText = "Authenticating...";
-
-    try {
-        // 2. Fetch data from your Google Sheet via Apps Script
-        const response = await fetch(`${API_URL}?id=${encodeURIComponent(id)}`);
-        const data = await response.json();
-
-        if (data.status === "success") {
-            // 3. Use your existing showRes function to display the green box
-            showRes(data.name, data.domain);
-            errorPanel.style.display = 'none';
-        } else {
-            // 4. Show "Record not found"
-            successPanel.style.display = 'none';
+        try {
+            const response = await fetch(`${API_URL}?id=${encodeURIComponent(id)}`);
+            const data = await response.json();
+            if (data.status === "success") {
+                showRes(data.name, data.domain);
+                errorPanel.style.display = 'none';
+            } else {
+                successPanel.style.display = 'none';
+                errorPanel.style.display = 'block';
+            }
+        } catch (err) {
+            console.error("Connection failed", err);
+            errorPanel.innerText = "Network error. Please check your connection.";
             errorPanel.style.display = 'block';
+        } finally {
+            btn.innerText = originalText;
         }
-    } catch (err) {
-        console.error("Connection failed", err);
-        errorPanel.innerText = "Network error. Please check your connection.";
-        errorPanel.style.display = 'block';
-    } finally {
-        // Reset button text
-        btn.innerText = originalText;
     }
-}
 
-function showRes(name, domain) {
-    // This ensures the green panel is visible and filled with data
-    document.getElementById('cert-success').style.display = 'block';
-    document.getElementById('v-name').textContent = name;
-    document.getElementById('v-domain').textContent = domain;
-}
+    function showRes(name, domain) {
+        document.getElementById('cert-success').style.display = 'block';
+        document.getElementById('v-name').textContent = name;
+        document.getElementById('v-domain').textContent = domain;
+    }
 </script>
 
 </body>
