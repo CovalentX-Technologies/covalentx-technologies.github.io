@@ -100,16 +100,31 @@
 
         /* Hero */
       
-        /* Makes the hero section fill exactly one full screen on desktop */
+       /* Forces the Hero Section to perfectly fit exactly one full screen on Desktop */
 .hero {
-    min-height: 100vh; /* Forces the section to take up 100% of the screen height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centers the text and button vertically */
-    align-items: center;
-    padding: 110px 8% 40px !important; /* 110px top padding accounts for the fixed navbar */
-    box-sizing: border-box;
+    min-height: 100vh !important; /* Strict structural height enforcement */
+    height: 100vh !important;     /* Locks it to the viewport boundaries */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Perfectly balances content vertically */
+    align-items: center !important;    /* Centers text horizontally */
+    padding-top: 120px !important;     /* Pushes down cleanly past your 110px navbar */
+    padding-bottom: 20px !important;
+    margin: 0 !important;             /* Eliminates layout margin bleed */
+    box-sizing: border-box !important;
     background: radial-gradient(circle at top right, #f0f7ff 0%, #ffffff 50%);
+    position: relative;
+    overflow: hidden;                 /* Prevents internal content margins from stretching the page */
+}
+
+/* Responsive adjustment so mobile rendering remains completely unaffected */
+@media (max-width: 768px) {
+    .hero {
+        height: auto !important;      /* Allows natural scrolling on mobile screens */
+        min-height: auto !important;
+        padding-top: 110px !important;
+        padding-bottom: 20px !important;
+    }
 }
 
         .hero h1 {
