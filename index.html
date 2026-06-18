@@ -514,42 +514,50 @@ nav {
         nav { padding: 10px 4%; }
     }
 
-    @media (max-width: 768px) {
+   @media (max-width: 768px) {
+    /* 1. Keeps your white main header bar cleanly separated on top */
     nav { 
-        height: 80px; /* Slightly more compact for mobile viewports */
+        height: 110px; 
+        background: #ffffff !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1001; /* Keeps header strictly on top layer */
     }
-    
+
     .main-logo { 
-        height: 55px; 
+        height: 80px; 
     }
-    
+
     .brand-name { 
-        font-size: 1.25rem; 
+        font-size: 1.4rem; 
     }
 
     .menu-toggle { 
         display: flex; 
     }
 
-    /* Premium, Clean Sidebar Navigation Panel Layout */
+    /* 2. Pushes the slide-out menu BELOW the header bar so it never overlaps your logo or company name */
     .nav-links {
         position: fixed;
-        top: 80px; /* Aligns precisely under the fixed header so nothing overlaps */
-        right: -100%;
-        width: 100%; /* Spans full screen width cleanly */
+        top: 110px; /* Aligns exactly at the bottom edge of your header */
+        right: -100%; /* Default hidden position */
+        width: 100%;
         max-width: 320px;
-        height: calc(100vh - 80px); /* Extends exactly to the viewport bottom */
-        background: #ffffff;
-        box-shadow: -10px 15px 30px rgba(0, 0, 0, 0.05);
+        height: calc(100vh - 110px); /* Takes up remaining height of screen */
+        background: #ffffff; /* Solid white background so background contents don't bleed through */
+        box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.05);
         flex-direction: column;
-        justify-content: flex-start; /* Flows items naturally from top to bottom */
+        justify-content: flex-start;
         align-items: flex-start;
-        padding: 40px 30px;
-        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 999;
-        border-left: 1px solid #edf2f7;
+        padding: 20px 30px;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000; /* Stays structural but layers underneath the nav header level */
+        border-top: 1px solid #edf2f7;
     }
 
+    /* Toggled State */
     .nav-links.active {
         right: 0;
     }
@@ -557,31 +565,24 @@ nav {
     .nav-links li {
         margin: 0;
         width: 100%;
-        margin-left: 0;
     }
 
     .nav-links a {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
         font-weight: 600;
         display: block;
         width: 100%;
-        padding: 16px 0;
+        padding: 15px 0;
         border-bottom: 1px solid #f7fafc;
         color: var(--slate);
     }
-    
-    .nav-links a:hover {
-        color: var(--electric);
-        padding-left: 5px; /* Subtle premium interaction feedback */
-    }
 }
 
-/* Fixes content cutting under the fixed navbar when clicking link anchor points */
+/* 3. Prevents content headings from cutting off when jumping to a section */
 section, [id] {
-    scroll-margin-top: 120px; /* Pushes content down past the fixed navigation height */
+    scroll-margin-top: 130px; 
 }
-       
-        
+     
     </style>
 </head>
 <body>
