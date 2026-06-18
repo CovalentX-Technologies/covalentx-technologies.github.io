@@ -101,32 +101,31 @@
         /* Hero */
       
        /* Forces the Hero Section to perfectly fit exactly one full screen on Desktop */
-    .hero {
-min-height: 100vh !important; /* Strict structural height enforcement */
-height: 100vh !important;     /* Locks it to the viewport boundaries */
-display: flex !important;
-flex-direction: column !important;
-justify-content: center !important; /* Perfectly balances content vertically */
-align-items: center !important;    /* Centers text horizontally */
-padding-top: 120px !important;     /* Pushes down cleanly past your 110px navbar */
-padding-bottom: 20px !important;
-margin: 0 !important;             /* Eliminates layout margin bleed */
-box-sizing: border-box !important;
-background: radial-gradient(circle at top right, #f0f7ff 0%, #ffffff 50%);
-position: relative;
-overflow: hidden;                 /* Prevents internal content margins from stretching the page */
-}
+        .hero {
+            min-height: 100vh !important; /* Strict structural height enforcement */
+            height: 100vh !important;     /* Locks it to the viewport boundaries */
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important; /* Perfectly balances content vertically */
+            align-items: center !important;    /* Centers text horizontally */
+            padding-top: 120px !important;     /* Pushes down cleanly past your 110px navbar */
+            padding-bottom: 20px !important;
+            margin: 0 !important;             /* Eliminates layout margin bleed */
+            box-sizing: border-box !important;
+            background: radial-gradient(circle at top right, #f0f7ff 0%, #ffffff 50%);
+            position: relative;
+            overflow: hidden;                 /* Prevents internal content margins from stretching the page */
+        }
 
-/* Responsive adjustment so mobile rendering remains completely unaffected */
-@media (max-width: 768px) {
-    .hero {
-        height: auto !important;      /* Allows natural scrolling on mobile screens */
-        min-height: auto !important;
-        padding-top: 110px !important;
-        padding-bottom: 20px !important;
+        /* Responsive adjustment so mobile rendering remains completely unaffected */
+        @media (max-width: 768px) {
+        .hero {
+            height: auto !important;      /* Allows natural scrolling on mobile screens */
+            min-height: auto !important;
+            padding-top: 110px !important;
+            padding-bottom: 20px !important;
     }
 }
-
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 800;
@@ -136,7 +135,7 @@ overflow: hidden;                 /* Prevents internal content margins from stre
         }
 
         .hero p {
-            font-size: 2rem;
+            font-size: 1.75rem;
             color: var(--slate);
             max-width: 700px;
             margin: 0 auto 40px;
@@ -398,39 +397,39 @@ overflow: hidden;                 /* Prevents internal content margins from stre
         }
 
         /* Ensure the body doesn't cause horizontal scrolling during sidebar animations */
-body {
-    overflow-x: hidden;
-}
+        body {
+            overflow-x: hidden;
+        }
 
-/* Updated Navbar Container */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 8%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #edf2f7;
-    height: 110px; /* Fixed height for consistency */
-}
+        /* Updated Navbar Container */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #edf2f7;
+            height: 110px; /* Fixed height for consistency */
+        }
 
-.brand-area {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    z-index: 1001; /* Keeps logo above mobile sidebar */
-}
+     .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            z-index: 1001; /* Keeps logo above mobile sidebar */
+    }
 
-.main-logo {
-    height: 90px;
-    width: auto;
-    object-fit: contain;
-}
+    .main-logo {
+        height: 90px;
+        width: auto;
+        object-fit: contain;
+    }
 
 
     /* Required standard layout configuration */
