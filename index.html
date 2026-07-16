@@ -757,28 +757,129 @@ section, [id] {
     </div>
 </section>
 
-<section class="section" id="services">
-    <span class="tagline">What We Do</span>
-    <h2 class="section-title">Our Expert Services</h2>
+ <!-- START OF COMPATIBLE INTERACTIVE SERVICES SECTION -->
+<section class="section" id="services" style="background-color: #ffffff;">
+    <span class="tagline" style="letter-spacing: 3px; font-weight: 800; animation: pulse 2s infinite;">What We Offer</span>
+    <h2 class="section-title" style="margin-bottom: 20px;">Enterprise & Business Automation Solutions</h2>
+    <p style="text-align: center; color: var(--slate); max-width: 700px; margin: 0 auto 50px; font-size: 1.05rem; text-align: justify;">
+        We design high-performance applications and clean internal toolkits tailored to eliminate manual overhead and optimize production operations.
+    </p>
+
+    <!-- Main Core Capabilities: Grid Layout -->
     <div class="grid-3">
-        <div class="card">
-            <i class="fas fa-globe fa-2x" style="color: var(--electric);"></i>
-            <h3>Web Development</h3>
-            <p>We build high-performance, responsive websites and progressive web apps using modern stacks like React, Node, and Python.</p>
+        <!-- Card 1: Web Development -->
+        <div class="card" style="position: relative; overflow: hidden; border-radius: 20px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); min-height: 340px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                <div style="background: rgba(30, 144, 255, 0.08); padding: 15px; rounded-radius: 14px; border-radius: 12px; transition: 0.3s;" class="service-icon-wrapper">
+                    <i class="fas fa-globe fa-2xl" style="color: var(--electric); transition: transform 0.4s ease;"></i>
+                </div>
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--electric); opacity: 0.4;">CORE</span>
+            </div>
+            <div>
+                <h3 style="margin-top: 10px; font-size: 1.35rem;">Web Application Development</h3>
+                <p style="margin-top: 8px; line-height: 1.6; text-align: justify;">High-speed, responsive, secure web solutions built to capture customer actions and scale smoothly under extreme operational traffic.</p>
+                <ul class="check-list" style="margin-top: 15px; font-size: 0.85rem;">
+                    <li><i class="fas fa-check-circle" style="color: var(--electric);"></i> Custom Admin & Client Portals</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--electric);"></i> E-Commerce Architecture</li>
+                </ul>
+            </div>
+            <!-- Bottom progress highlight line triggered on hover -->
+            <div style="position: absolute; bottom: 0; left: 0; width: 0; h: 4px; height: 4px; background: var(--electric); transition: width 0.5s ease-out;" class="hover-line"></div>
         </div>
-        <div class="card">
-            <i class="fas fa-mobile-alt fa-2x" style="color: var(--electric);"></i>
-            <h3>App Development</h3>
-            <p>Creating seamless iOS and Android experiences with a focus on user-centric design and scalable architecture.</p>
+
+        <!-- Card 2: App Development -->
+        <div class="card" style="position: relative; overflow: hidden; border-radius: 20px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); min-height: 340px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                <div style="background: rgba(30, 144, 255, 0.08); padding: 15px; border-radius: 12px; transition: 0.3s;" class="service-icon-wrapper">
+                    <i class="fas fa-mobile-alt fa-2xl" style="color: var(--electric); transition: transform 0.4s ease;"></i>
+                </div>
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--electric); opacity: 0.4;">MOBILE</span>
+            </div>
+            <div>
+                <h3 style="margin-top: 10px; font-size: 1.35rem;">Mobile App Development</h3>
+                <p style="margin-top: 8px; line-height: 1.6; text-align: justify;">Native and cross-platform native smartphone platforms featuring fluid interfaces, low-latency structures, and clean cloud integrations.</p>
+                <ul class="check-list" style="margin-top: 15px; font-size: 0.85rem;">
+                    <li><i class="fas fa-check-circle" style="color: var(--electric);"></i> iOS & Android Deployments</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--electric);"></i> Offline-First Architecture Systems</li>
+                </ul>
+            </div>
+            <div style="position: absolute; bottom: 0; left: 0; width: 0; height: 4px; background: var(--electric); transition: width 0.5s ease-out;" class="hover-line"></div>
         </div>
-        <div class="card">
-            <i class="fas fa-microchip fa-2x" style="color: var(--electric);"></i>
-            <h3>Software Solutions</h3>
-            <p>Custom enterprise software, AI integration, and cloud-based systems tailored to streamline business operations.</p>
+
+        <!-- Card 3: Business Automation -->
+        <div class="card" style="position: relative; overflow: hidden; border-radius: 20px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); min-height: 340px; border-color: var(--cobalt);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                <div style="background: rgba(11, 61, 145, 0.1); padding: 15px; border-radius: 12px; transition: 0.3s;" class="service-icon-wrapper">
+                    <i class="fas fa-cogs fa-2xl" style="color: var(--cobalt); transition: transform 0.4s ease;"></i>
+                </div>
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--cobalt); opacity: 0.8;">AUTOMATION</span>
+            </div>
+            <div>
+                <h3 style="margin-top: 10px; font-size: 1.35rem;">Enterprise Automations</h3>
+                <p style="margin-top: 8px; line-height: 1.6; text-align: justify;">Eliminate structural tracking errors. Custom cloud routines built to instantly handle document workflows and operations.</p>
+                <ul class="check-list" style="margin-top: 15px; font-size: 0.85rem;">
+                    <li><i class="fas fa-check-circle" style="color: var(--cobalt);"></i> Dynamic LC & Offer Letter Generators</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--cobalt);"></i> Bulk Verification ID & Certificate Engines</li>
+                </ul>
+            </div>
+            <div style="position: absolute; bottom: 0; left: 0; width: 0; height: 4px; background: var(--cobalt); transition: width 0.5s ease-out;" class="hover-line"></div>
         </div>
     </div>
-</section>
 
+    <!-- Micro-Engine Grid Layout: Tooling Subsections -->
+    <div style="margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+        
+        <!-- Utility 1: LC -->
+        <div class="utility-subcard" style="background: #fafbfc; border: 1px solid #edf2f7; padding: 20px; border-radius: 14px; transition: 0.3s ease;">
+            <div style="color: var(--cobalt); font-weight: 800; font-size: 0.9rem; margin-bottom: 6px;"><i class="fas fa-file-signature" style="margin-right: 6px;"></i> LC Generator</div>
+            <p style="font-size: 0.85rem; color: var(--slate); line-height: 1.5; text-align: justify;">Auto-compiles official leaving records and departure certificates directly from server sheets.</p>
+        </div>
+
+        <!-- Utility 2: Offer Letter -->
+        <div class="utility-subcard" style="background: #fafbfc; border: 1px solid #edf2f7; padding: 20px; border-radius: 14px; transition: 0.3s ease;">
+            <div style="color: var(--cobalt); font-weight: 800; font-size: 0.9rem; margin-bottom: 6px;"><i class="fas fa-envelope-open-text" style="margin-right: 6px;"></i> Offer Letters</div>
+            <p style="font-size: 0.85rem; color: var(--slate); line-height: 1.5; text-align: justify;">Dynamic compilation and instant dispatch engines for onboarding documentation pipelines.</p>
+        </div>
+
+        <!-- Utility 3: Certificates -->
+        <div class="utility-subcard" style="background: #fafbfc; border: 1px solid #edf2f7; padding: 20px; border-radius: 14px; transition: 0.3s ease;">
+            <div style="color: var(--cobalt); font-weight: 800; font-size: 0.9rem; margin-bottom: 6px;"><i class="fas fa-award" style="margin-right: 6px;"></i> Bulk Certificates</div>
+            <p style="font-size: 0.85rem; color: var(--slate); line-height: 1.5; text-align: justify;">High-resolution vector achievement assets embedded with dynamic verification logs.</p>
+        </div>
+
+        <!-- Utility 4: ID Generator -->
+        <div class="utility-subcard" style="background: #fafbfc; border: 1px solid #edf2f7; padding: 20px; border-radius: 14px; transition: 0.3s ease;">
+            <div style="color: var(--cobalt); font-weight: 800; font-size: 0.9rem; margin-bottom: 6px;"><i class="fas fa-id-card" style="margin-right: 6px;"></i> ID Card Systems</div>
+            <p style="font-size: 0.85rem; color: var(--slate); line-height: 1.5; text-align: justify;">Programmatically structures clean identity cards into scalable, ready-to-print structures.</p>
+        </div>
+
+    </div>
+
+    <!-- Hidden CSS inject to execute smooth interactive motion without altering global file configurations -->
+    <style>
+        .card:hover {
+            box-shadow: 0 20px 40px rgba(11, 61, 145, 0.12) !important;
+        }
+        .card:hover .hover-line {
+            width: 100% !important;
+        }
+        .card:hover .service-icon-wrapper i {
+            transform: scale(1.15) translateY(-2px);
+        }
+        .utility-subcard:hover {
+            border-color: var(--electric) !important;
+            background: #ffffff !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+    </style>
+</section>
+<!-- END OF COMPATIBLE INTERACTIVE SERVICES SECTION -->
 <!-- DROPDOWN FAQ SECTION -->
 <section class="section" id="faq" style="background-color: #fcfdfe;">
     <span class="tagline">FAQ</span>
