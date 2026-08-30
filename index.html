@@ -1926,7 +1926,7 @@ html, body {
     }
 
     .brand-area {
-        gap: 8px !important;
+        gap: 7px !important;
     }
 
     .main-logo {
@@ -2028,51 +2028,7 @@ html, body {
     }
 }
 
-/* =========================================================
-   1. NAVBAR HAMBURGER GAP & GHOST LINES FIX
-   ========================================================= */
-nav {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 12px 16px !important;
-    width: 100% !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    z-index: 1000 !important;
-    background: #ffffff !important;
-    box-sizing: border-box !important;
-}
 
-.brand-area {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    flex-shrink: 1 !important; /* Allows space for hamburger */
-    max-width: calc(100% - 60px) !important;
-}
-
-.brand-name {
-    font-size: 1.15rem !important; /* Resizes title so it doesn't touch the icon */
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-}
-
-.menu-toggle {
-    display: flex !important;
-    margin-left: auto !important; /* Pushes button to far right with clear gap */
-    flex-shrink: 0 !important;
-    padding: 6px !important;
-}
-
-/* Hide ghost mobile nav lines leaking underneath header */
-@media screen and (max-width: 992px) {
-    .nav-links:not(.active) {
-        display: none !important; /* Completely hides inactive menu lines */
-    }
-}
 
 /* =========================================================
    2. REMOVE UNWANTED STRAY LINKS INSIDE POP-UP MODALS
