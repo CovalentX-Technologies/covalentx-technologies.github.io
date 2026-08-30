@@ -1916,7 +1916,62 @@ html, body {
         background-color: #f8fafc !important; /* Forces gray to fill screen full width */
     }
 }
-     
+
+@media (max-width: 768px) {
+    /* --------------------------------------------------
+       FIX 1: NAVBAR BRAND & HAMBURGER SPACING
+       -------------------------------------------------- */
+    nav {
+        padding: 10px 16px !important; /* Reduce horizontal padding */
+    }
+
+    .brand-area {
+        gap: 8px !important;
+    }
+
+    .main-logo {
+        height: 50px !important; /* Scale down logo on mobile */
+    }
+
+    .brand-name {
+        font-size: 1.25rem !important; /* Prevents crowding the hamburger button */
+        white-space: nowrap !important;
+    }
+
+    .menu-toggle {
+        margin-left: auto !important; /* Push hamburger button to far right */
+        padding: 6px !important;
+    }
+
+    /* --------------------------------------------------
+       FIX 2: FAQ ITEM ALIGNMENT & ARROW PLACEMENT
+       -------------------------------------------------- */
+    .faq-header {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+
+    .faq-header h3 {
+        font-size: 1.1rem !important;
+        line-height: 1.4 !important;
+        flex: 1 !important; /* Allows title to wrap cleanly on left */
+    }
+
+    .faq-icon {
+        flex-shrink: 0 !important; /* Prevents icon container from stretching wide */
+        width: 36px !important;
+        height: 36px !important;
+        background: #f0f7ff !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
     </style>
 </head>
 <body>
